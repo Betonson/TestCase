@@ -64,6 +64,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\EnemyMovement.cs" />
+    <Compile Include="Assets\Scripts\FieldOfView_Mesh.cs" />
+    <Compile Include="Assets\Scripts\FieldOfView_SimpleRaycast.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Program files/Codespace/Projects/TestCase/TestCase/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
