@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\FieldOfView_Mesh.cs" />
     <Compile Include="Assets\Scripts\FieldOfView_SimpleRaycast.cs" />
+    <Compile Include="Assets\Scripts\PausePanelDeactivator.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\SceneSwitcher.cs" />
     <Reference Include="Unity.Timeline.Editor">

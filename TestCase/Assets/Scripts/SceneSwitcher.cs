@@ -17,7 +17,7 @@ public class SceneSwitcher : MonoBehaviour
     }
     public void ContinueButton()
     {
-        restartPanel.SetActive(false);
+        //restartPanel.SetActive(false);
         //pauseButton.SetActive(true);
         Time.timeScale = 1;
     }
