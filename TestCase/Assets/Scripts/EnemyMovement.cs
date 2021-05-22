@@ -6,7 +6,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private GameObject _player;
     [SerializeField] private NavMeshAgent _navMeshAgent;
     [SerializeField] private Transform[] _waypoints;
-    [SerializeField] private GameObject _wayPoints;
+    [SerializeField] private GameObject _wayPointsGroup;
     public bool _canSeePlayer = false;
 
     int m_CurrentWaypointIndex = 0;
@@ -15,8 +15,13 @@ public class EnemyMovement : MonoBehaviour
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _player = GameObject.FindGameObjectWithTag("Player");
-        _wayPoints = GameObject.Find("Waypoints_EnemyOne");
-        _waypoints = _wayPoints.GetComponentsInChildren<Transform>();
+        _wayPointsGroup = GameObject.Find("Waypoints_EnemyOne");
+        _waypoints = new Transform[_wayPointsGroup.transform.childCount];
+        for (int i = 0; i< _wayPointsGroup.transform.childCount; i++)
+        {
+            _waypoints[i] = _wayPointsGroup.transform.GetChild(i);
+        }
+        //_waypoints = _wayPointsGroup.GetComponentsInChildren<Transform>();
         _navMeshAgent.SetDestination(_waypoints[0].position);
     }
 

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using EasyJoystick;
 
 namespace TestCase
 {
@@ -8,6 +9,8 @@ namespace TestCase
         [SerializeField] private Vector3 _moveVelocity;
         [SerializeField] private Rigidbody _playerRigidbody;
         [SerializeField] private float _playerSpeed = 10.0f;
+        [SerializeField] private Joystick joystick;
+        [SerializeField] private float _speed;
         //private Vector3 _bulletDirection = this.transform.position - _bulletSpawnPoint.position;
 
         void Start()
@@ -17,16 +20,15 @@ namespace TestCase
 
         void Update()
         {
-            //float vectorX = Input.GetAxis("Horizontal");
-            //float vectorZ = Input.GetAxis("Vertical");
+            float vectorX = joystick.Horizontal();
+            float vectorZ = joystick.Vertical();
 
-            //transform.position -= transform.forward * vectorX * _speed * Time.deltaTime;
-            //transform.position += transform.right * vectorZ * _speed * Time.deltaTime;
+            transform.position += new Vector3(vectorZ, 0.0f, -vectorX) * _speed * Time.deltaTime;
 
-            _moveInput = new Vector3(Input.GetAxisRaw("Vertical"), 0f, Input.GetAxisRaw("Horizontal") * -1.0f);
-            _moveVelocity = _moveInput * _playerSpeed;
+            //_moveInput = new Vector3(Input.GetAxisRaw("Vertical"), 0f, Input.GetAxisRaw("Horizontal") * -1.0f);
+            //_moveVelocity = _moveInput * _playerSpeed;
 
-            _playerRigidbody.velocity = _moveVelocity;
+            //_playerRigidbody.velocity = _moveVelocity;
 
         }
 
