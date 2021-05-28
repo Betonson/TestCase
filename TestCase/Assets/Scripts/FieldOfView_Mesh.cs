@@ -20,51 +20,51 @@ namespace TestCase
 		public float meshResolution;
 		public int edgeResolveIterations;
 		public float edgeDstThreshold;
-		public Transform player;
+		//public Transform player;
 
 		public MeshFilter viewMeshFilter;
 		Mesh viewMesh;
 
 		void Start()
 		{
-			player = GameObject.FindGameObjectWithTag("Player").transform;
+			//player = GameObject.FindGameObjectWithTag("Player").transform;
 			viewMesh = new Mesh();
 			viewMesh.name = "View Mesh";
 			viewMeshFilter.mesh = viewMesh;
 
-			StartCoroutine("FindTargetsWithDelay", .05f);
+			//StartCoroutine("FindTargetsWithDelay", .05f);
 		}
 
 
-        IEnumerator FindTargetsWithDelay(float delay)
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(delay);
-                FindVisibleTargets();
-            }
-        }
+        //IEnumerator FindTargetsWithDelay(float delay)
+        //{
+        //    while (true)
+        //    {
+        //        yield return new WaitForSeconds(delay);
+        //        FindVisibleTargets();
+        //    }
+        //}
 
         void LateUpdate()
 		{
 			DrawFieldOfView();
 		}
 
-        void FindVisibleTargets()
-        {
-			Vector3 direction = player.transform.position - transform.position;
-			Debug.DrawLine(transform.position, player.transform.position, Color.green, 0, false);
-			Ray ray = new Ray(transform.position, direction);
-			if (Physics.Raycast(ray, out RaycastHit raycastHit, viewRadius))
-			{
-				Debug.Log("Ray hit: " + raycastHit.collider.tag);
-				if (raycastHit.collider.CompareTag("Player") && Vector3.Angle(direction, transform.forward) <= (viewAngle / 2))
-				{
-					Debug.DrawLine(transform.position, raycastHit.collider.transform.position, Color.red, 0, false);
-					Debug.Log("Player is spotted");
-				}
-			}
-		}
+  //      void FindVisibleTargets()
+  //      {
+		//	Vector3 direction = player.transform.position - transform.position;
+		//	Debug.DrawLine(transform.position, player.transform.position, Color.green, 0, false);
+		//	Ray ray = new Ray(transform.position, direction);
+		//	if (Physics.Raycast(ray, out RaycastHit raycastHit, viewRadius))
+		//	{
+		//		Debug.Log("Ray hit: " + raycastHit.collider.tag);
+		//		if (raycastHit.collider.CompareTag("Player") && Vector3.Angle(direction, transform.forward) <= (viewAngle / 2))
+		//		{
+		//			Debug.DrawLine(transform.position, raycastHit.collider.transform.position, Color.red, 0, false);
+		//			Debug.Log("Player is spotted");
+		//		}
+		//	}
+		//}
 
         void DrawFieldOfView()
 		{

@@ -28,7 +28,6 @@ namespace TestCase
                     Debug.DrawLine(transform.position, raycastHit.collider.transform.position, Color.red, 0, false);
                     Debug.Log("Player is spotted");
                     _enemySpotLight.color = Color.red;
-                    //GetComponent<EnemySpotLight>();
                 }
                 else
                 {

@@ -3,6 +3,8 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
+    public static event System.Action CanSeePlayer;
+
     [SerializeField] private GameObject _player;
     [SerializeField] private NavMeshAgent _navMeshAgent;
     [SerializeField] private Transform[] _waypoints;

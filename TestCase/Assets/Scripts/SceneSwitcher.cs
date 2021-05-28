@@ -5,10 +5,7 @@ public class SceneSwitcher : MonoBehaviour
 {
     public GameObject restartPanel;
     public GameObject pauseButton;
-    public void GoToGameScene()
-    {
-        SceneManager.LoadScene("TinyPlanets");
-    }
+    
 
     public void RestartButton()
     {
@@ -19,13 +16,14 @@ public class SceneSwitcher : MonoBehaviour
     {
         //restartPanel.SetActive(false);
         //pauseButton.SetActive(true);
-        Time.timeScale = 1;
+        
     }
 
     public void GoToMainMenuButton()
     {
         //SceneManager.LoadScene("Main menu");
         Debug.Log("Went to main menu");
+        Time.timeScale = 1;
     }
 
     public void PauseButton()
